@@ -27,8 +27,8 @@ public class Bidder {
 	private String bidderCity;
 	private String bidderState;
 	private int bidderPinCode;
-	private int bidderContact;
-	private int bidderAadharCard;
+	private long bidderContact;
+	private long bidderAadharCard;
 	private String bidderPanCard;
 	private String bidderPassword;
 
@@ -115,19 +115,19 @@ public class Bidder {
 		this.bidderPinCode = bidderPinCode;
 	}
 
-	public int getBidderContact() {
+	public long getBidderContact() {
 		return bidderContact;
 	}
 
-	public void setBidderContact(int bidderContact) {
+	public void setBidderContact(long bidderContact) {
 		this.bidderContact = bidderContact;
 	}
 
-	public int getBidderAadharCard() {
+	public long getBidderAadharCard() {
 		return bidderAadharCard;
 	}
 
-	public void setBidderAadharCard(int bidderAadharCard) {
+	public void setBidderAadharCard(long bidderAadharCard) {
 		this.bidderAadharCard = bidderAadharCard;
 	}
 

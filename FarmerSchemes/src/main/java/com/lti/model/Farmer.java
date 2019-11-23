@@ -28,8 +28,8 @@ public class Farmer {
 	private String farmerCity;
 	private String farmerState;
 	private int farmerPinCode;
-	private int farmerContact;
-	private int farmerAadharCard;
+	private long farmerContact;
+	private long farmerAadharCard;
 	private String farmerPanCard;
 	private int farmerInsuranceId;
 	private String farmerPassword;
@@ -105,19 +105,19 @@ public class Farmer {
 		this.farmerPinCode = farmerPinCode;
 	}
 
-	public int getFarmerContact() {
+	public long getFarmerContact() {
 		return farmerContact;
 	}
 
-	public void setFarmerContact(int farmerContact) {
+	public void setFarmerContact(long farmerContact) {
 		this.farmerContact = farmerContact;
 	}
 
-	public int getFarmerAadharCard() {
+	public long getFarmerAadharCard() {
 		return farmerAadharCard;
 	}
 
-	public void setFarmerAadharCard(int farmerAadharCard) {
+	public void setFarmerAadharCard(long farmerAadharCard) {
 		this.farmerAadharCard = farmerAadharCard;
 	}
 
