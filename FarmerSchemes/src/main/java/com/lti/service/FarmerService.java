@@ -17,41 +17,25 @@ public class FarmerService implements RegistrationLoginInterface {
 	@PersistenceContext
 	private EntityManager em;
 
-//	public String addNew(Object obj) {
-//		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-//		GenericInterface dao1 = (GenericInterface) ctx.getBean("genericDao");
-//		dao1.addEntity(obj);
-//		return "Success";
-//	}
-//
-//	public void display() {
-//		// TODO Auto-generated method stub
-//
-//	}
-//
-//	public Farmer loginCheck(String username, String password) {
-//		Query query = em.createQuery("SELECT f FROM Farmer f where f.farmerName = :uname and f.farmerPassword = :upassword");
-//		query.setParameter("uname", username);
-//		query.setParameter("upassword", password);
-//		Farmer farmer = (Farmer) query.getSingleResult();
-//		return farmer;
-//	}
-
 	public Boolean register(Object obj) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-		GenericInterface dao1 = (GenericInterface) ctx.getBean("genericDao");
+		GenericInterface dao1 = (GenericInterface) ctx.getBean("farmerdao");
 		dao1.addEntity(obj);
 		return true;
 	}
 
 	public Object login(String username, String password) {
-		Query query = em.createQuery("SELECT f FROM Farmer f where f.farmerName = :uname and f.farmerPassword = :upassword");
-		query.setParameter("uname", username);
-		query.setParameter("upassword", password);
-		Farmer farmer = (Farmer) query.getSingleResult();
+		Farmer farmer;
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
+		RegistrationLoginInterface dao1 = (RegistrationLoginInterface) ctx.getBean("farmerdao");
+		try {
+		farmer = (Farmer) dao1.login(username, password);
+		}
+		catch(NullPointerException e)
+		{
+			return null;
+		}
 		return farmer;
 	}
 
-
-	
 }

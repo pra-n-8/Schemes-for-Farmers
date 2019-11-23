@@ -27,5 +27,5 @@ public class InputDao implements GenericInterface {
 		return entity;
 	}
 	
-//	@Transactional
+	
 }
