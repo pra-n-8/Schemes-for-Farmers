@@ -45,4 +45,9 @@ public void loginTest()
 		ad.setAdminPassword("admin");
 		dao.addEntity(ad);
 	}
+	
+	@Test
+	public void sellCrops() {
+		
+	}
 }
