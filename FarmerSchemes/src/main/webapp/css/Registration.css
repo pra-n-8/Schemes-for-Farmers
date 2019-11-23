@@ -1,0 +1,7 @@
+@charset "ISO-8859-1";
+//Number arrow removal
+.quantity::-webkit-inner-spin-button, 
+.quantity::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

@@ -13,9 +13,9 @@
 <label>Email</label><input type="email" name="farmerEmail" />
 <label>City</label><input type="text" name="farmerCity" />
 <label>State</label><input type="text" name="farmerState" />
-<label>PinCode</label><input type="number" name="farmerPinCode" />
-<label>Contact</label><input type="number" name="farmerContact" />
-<label>Aadhar Card</label><input type="number" name="farmerAadharCard" />
+<label>PinCode</label><input type="number" name="farmerPinCode" class="quantity"/>
+<label>Contact</label><input type="number" name="farmerContact" class="quantity"/>
+<label>Aadhar Card</label><input type="number" name="farmerAadharCard" class="quantity"/>
 <label>Pancard</label><input type="text" name="farmerPanCard" />
 <lable>Password</lable><input type="password" name="farmerPassword" />
 <lable>Confirm Password</lable><input type="password" name="confirm_farmerPassword" />
