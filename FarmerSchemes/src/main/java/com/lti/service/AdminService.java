@@ -5,7 +5,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
 import com.lti.interfaces.GenericInterface;
-import com.lti.interfaces.FarmerServiceInterface;
 
 @Service("adminService")
 public class AdminService {
