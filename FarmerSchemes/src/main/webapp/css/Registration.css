@@ -1,0 +1,58 @@
+@charset "ISO-8859-1";
+.quantity::-webkit-inner-spin-button, 
+.quantity::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+#registration {
+	width: 450px;
+	padding: 2em;
+	margin: 2em auto;
+}
+body {
+	background:;
+}
+form{
+  font-family: Calibri;  
+  font-style: normal;
+  font-weight: bold;
+  text-align:inline; 
+  background-color: SlateBlue; 
+  border-collapse: collapse; 
+  border: 2px solid navy
+}
+h1{
+  font-family: Calibri; 
+  font-size: 20pt;         
+  font-weight: bold; 
+  text-align: center; 
+  text-decoration: underline
+}
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 150px;
+    text-align: left;
+}
+select,
+textarea,
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="submit"],
+input[type="email"]
+{
+  height:30px;
+  display: inline-block;
+  vertical-align: middle;
+  height: 34px;
+  padding: 0 10px;
+  margin-top: 3px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
