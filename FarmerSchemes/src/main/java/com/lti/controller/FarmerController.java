@@ -1,14 +1,15 @@
 package com.lti.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.lti.model.CropDetails;
 import com.lti.model.Farmer;
@@ -45,12 +46,11 @@ public class FarmerController {
 	}
 	
 	@RequestMapping(path="placeCrops.lti", method = RequestMethod.POST)
-	public String holdAuction(CropDetails cropdetails,HttpSession session) {
-//		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-//		RegistrationLoginInterface si = (RegistrationLoginInterface) ctx.getBean("farmerService");
-//		Boolean falg=si.register(farmer);
-		
-		System.out.println(session.getAttribute("fname"));
-		return "home.jsp";
+	public ModelAndView holdAuction(HttpSession session) {
+		List<CropDetails> searchList = farmerService.getCrops((Farmer)session.getAttribute("farmer"));
+		System.out.println( searchList.size());
+		ModelAndView mav = new ModelAndView("new");
+		mav.addObject("searchList", searchList);
+		return mav;
 	}
 }

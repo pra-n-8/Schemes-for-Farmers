@@ -1,5 +1,7 @@
 package com.lti.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -7,6 +9,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.lti.model.CropDetails;
 import com.lti.model.Farmer;
 
 @Component("farmerdao")
@@ -46,6 +49,15 @@ public class FarmerDao{
 	public Boolean register(Object obj) {
 		addEntity(obj);
 		return null;
+	}
+	
+	@Transactional
+	public List<CropDetails> retriveCrops(Farmer farmer){
+		Query query = em.createQuery("select c from CropDetails c where c.cropType = :ut");
+		query.setParameter("ut", "Food crop");
+		
+		List<CropDetails> crop = query.getResultList();
+		return crop;
 	}
 
 }

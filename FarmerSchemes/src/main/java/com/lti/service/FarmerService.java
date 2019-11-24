@@ -37,4 +37,8 @@ public class FarmerService {
 		farmerdao.addEntity(farmer);
 		return true;
 	}
+	
+	public List<CropDetails> getCrops(Farmer farmer){
+		return farmerdao.retriveCrops(farmer);
+	}
 }

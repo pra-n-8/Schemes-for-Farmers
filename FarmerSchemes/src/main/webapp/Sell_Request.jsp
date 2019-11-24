@@ -16,7 +16,7 @@ if(session.getAttribute("fid")!=null){
 %>
   <form id="contact" action="placeCrops.lti" method="post">
     <h3>Place For Auction</h3>
-    <fieldset>
+    <!-- <fieldset>
       <input placeholder="Crop Type" type="text" tabindex="1" name="cropType" required autofocus>
     </fieldset>
     <fieldset>
@@ -28,7 +28,7 @@ if(session.getAttribute("fid")!=null){
     <fieldset>
       <input placeholder="Crop Price" type="text" tabindex="3" name="ra" required>
     </fieldset>
-    <fieldset>
+    <fieldset> -->
       <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
     </fieldset>
   </form>
