@@ -8,11 +8,10 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.lti.interfaces.GenericInterface;
 import com.lti.model.Farmer;
 
 @Component("genericDao")
-public class InputDao implements GenericInterface {
+public class InputDao {
 	@PersistenceContext
 	private EntityManager em;
 

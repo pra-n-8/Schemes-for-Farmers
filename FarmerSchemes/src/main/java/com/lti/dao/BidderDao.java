@@ -7,13 +7,11 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.lti.interfaces.GenericInterface;
-import com.lti.interfaces.RegistrationLoginInterface;
 import com.lti.model.Bidder;
-import com.lti.model.Farmer;
 
 @Component("bidderdao")
-public class BidderDao implements GenericInterface, RegistrationLoginInterface {
+public class BidderDao {
+	
 	@PersistenceContext
 	private EntityManager em;
 

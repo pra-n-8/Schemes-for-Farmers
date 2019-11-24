@@ -7,12 +7,11 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.lti.interfaces.GenericInterface;
-import com.lti.interfaces.RegistrationLoginInterface;
 import com.lti.model.Farmer;
 
 @Component("farmerdao")
-public class FarmerDao implements GenericInterface, RegistrationLoginInterface {
+public class FarmerDao{
+
 	@PersistenceContext
 	private EntityManager em;
 

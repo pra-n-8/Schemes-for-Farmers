@@ -1,19 +1,24 @@
 package com.lti.testing;
 
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.lti.interfaces.GenericInterface;
+import com.lti.dao.InputDao;
+
 import com.lti.model.Admin;
 import com.lti.model.Farmer;
 
 public class Testing {
 
+	@Autowired
+	InputDao dao;
+	
 	@Test
 	public void test() {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
+		
 		Farmer farmer1 = new Farmer();
 		farmer1.setFarmerName("medhavi");
 		farmer1.setFarmerAddress("Banglore");
@@ -31,7 +36,7 @@ public class Testing {
 public void loginTest()
 	{
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
+
 		Farmer farmer = (Farmer)dao.retrieve(81, Farmer.class);
 		System.out.println(farmer.getFarmerName());
 	}
@@ -39,7 +44,7 @@ public void loginTest()
 	@Test
 	public void addAdmin() {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
+
 		Admin ad = new Admin();
 		ad.setAdminUname("admin");
 		ad.setAdminPassword("admin");

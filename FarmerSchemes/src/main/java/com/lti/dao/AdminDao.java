@@ -6,12 +6,14 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Component;
 
-import com.lti.interfaces.AdminServiceInterface;
 import com.lti.model.Admin;
+
 @Component("admindao")
-public class AdminDao implements AdminServiceInterface  {
-@PersistenceContext 
-private EntityManager em;
+public class AdminDao {
+
+	@PersistenceContext 
+	private EntityManager em;
+	
 	public Admin loginCheck(String username, String password) {
 		Admin admin;
 		Query query= em.createQuery("Select a from Admin a where a.adminUname=:uname and a.adminPassword = :pass");
