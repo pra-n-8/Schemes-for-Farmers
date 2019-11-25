@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.lti.dao.FarmerDao;
 import com.lti.model.CropDetails;
 import com.lti.model.Farmer;
+import com.lti.model.ListedCrops;
 
 @Service("farmerService")
 public class FarmerService {
@@ -30,15 +31,18 @@ public class FarmerService {
 		return farmer;
 	}
 
-	public Boolean addToListing(CropDetails cropDetails,Farmer farmer) {
-		List<CropDetails> li = farmer.getCrop();
-		li.add(cropDetails);
-		farmer.setCrop(li);
-		farmerdao.addEntity(farmer);
-		return true;
+	public void addToListing(CropDetails cropDetails,Farmer farmer) {
+		cropDetails.setFarmer(farmer);
+		farmerdao.addEntity(cropDetails);
+
 	}
 	
 	public List<CropDetails> getCrops(Farmer farmer){
 		return farmerdao.retriveCrops(farmer);
 	}
+	
+//	List<CropDetails> li = farmer.getCrop();
+//	li.add(cropDetails);
+//	farmer.setCrop(li);
+//	farmerdao.addEntity(farmer);
 }

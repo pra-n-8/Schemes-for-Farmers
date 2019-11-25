@@ -18,6 +18,7 @@ public class FarmerDao{
 	@PersistenceContext
 	private EntityManager em;
 
+	@Transactional
 	public void addEntity(Object entity) {
 		em.merge(entity);
 
@@ -53,8 +54,8 @@ public class FarmerDao{
 	
 	@Transactional
 	public List<CropDetails> retriveCrops(Farmer farmer){
-		Query query = em.createQuery("select c from CropDetails c where c.cropType = :ut");
-		query.setParameter("ut", "Food crop");
+		Query query = em.createQuery("select c from CropDetails c where c.farmer = :ut");
+		query.setParameter("ut", farmer);
 		
 		List<CropDetails> crop = query.getResultList();
 		return crop;
