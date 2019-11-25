@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.lti.dao.BidderDao;
 import com.lti.model.Bidder;
+import com.lti.model.CurrentBid;
 import com.lti.model.ListedCrops;
 
 @Service("bidderservice")

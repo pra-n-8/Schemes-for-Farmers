@@ -13,5 +13,8 @@
 			out.println("Welcome "+session.getAttribute("fname"));
 		}
 	%>
+	<form action="goToViewPage.lti" method="post">
+	<input type="submit" value="Submit">
+	</form>
 </body>
 </html>

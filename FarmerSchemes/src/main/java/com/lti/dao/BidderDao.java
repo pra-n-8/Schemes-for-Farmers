@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lti.model.Bidder;
+import com.lti.model.CurrentBid;
 import com.lti.model.ListedCrops;
 
 @Component("bidderdao")

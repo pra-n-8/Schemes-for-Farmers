@@ -61,7 +61,9 @@ public class FarmerController {
 		cb.setBasePrice(crop.getRate());
 		cb.setCrop(crop);
 		farmerService.register(cb);
-//		farmerService.register(listedcrops);
+		listedcrops.setFarmer((Farmer) session.getAttribute("farmer"));
+		crop.setFarmer((Farmer) session.getAttribute("farmer"));
+		farmerService.register(listedcrops);
 		return "ViewRequest.jsp";
 	}
 
