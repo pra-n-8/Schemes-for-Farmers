@@ -1,5 +1,8 @@
 package com.lti.dao;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -8,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lti.model.Bidder;
+import com.lti.model.ListedCrops;
 
 @Component("bidderdao")
 public class BidderDao {
@@ -38,9 +42,12 @@ public class BidderDao {
 		return bidder;
 	}
 
-	public Object retrieve(int Id, Class clazz) {
+	public List<ListedCrops> retrieve(LocalDateTime time) {
 		// TODO Auto-generated method stub
-		return null;
+		Query query= em.createQuery("select lc from ListedCrops lc where lc.expiryTime > :t");
+		query.setParameter("t", time);
+		List<ListedCrops> li = query.getResultList();
+		return li;
 	}
 
 	public Boolean register(Object obj) {

@@ -1,15 +1,18 @@
 package com.lti.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.lti.model.Bidder;
-import com.lti.model.Farmer;
+import com.lti.model.ListedCrops;
 import com.lti.service.BidderService;
 
 @Controller
@@ -24,18 +27,26 @@ public class BidderController {
 		return "home.jsp";
 	}
 	@RequestMapping(path="bidderlogin.lti", method = RequestMethod.POST)
-	public String loginBidder(@RequestParam(name="username") String username,@RequestParam(name="pass") String password) {
+	public String loginBidder(@RequestParam(name="username") String username,@RequestParam(name="pass") String password,HttpSession session) {
 		Bidder bidder;
 		
 		try {
 		bidder=(Bidder)bidderservice.login(username,password);
-		
+
+		session.setAttribute("Bidder", bidder);
 		}
 		catch(NullPointerException e){
 			System.out.println(e);
 		}
 		//session code
 		
-		return "home.jsp";
+		return "ViewMarketplace.jsp";
+	}
+	@RequestMapping(path="goToViewPage.lti" , method = RequestMethod.POST)
+	public ModelAndView viewlistedCrops(HttpSession session) {
+		ModelAndView mnv = new ModelAndView("ViewMarketplace.jsp");
+		List<ListedCrops> li = bidderservice.viewCrops();
+		mnv.addObject("list", li);
+		return mnv;
 	}
 }

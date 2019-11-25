@@ -1,11 +1,14 @@
 package com.lti.service;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lti.dao.BidderDao;
-
 import com.lti.model.Bidder;
+import com.lti.model.ListedCrops;
 
 @Service("bidderservice")
 public class BidderService  {
@@ -25,5 +28,7 @@ BidderDao bidder;
 		}
 		return bidder1;
 	}
-
+	public List<ListedCrops> viewCrops(){
+		return bidder.retrieve(LocalDateTime.now());
+	}
 }

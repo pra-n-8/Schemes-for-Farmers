@@ -31,7 +31,7 @@ public class ListedCrops {
 	private int quantity;
 	private int basePrice;
 	private LocalDateTime postTime;
-	private LocalDate expiryTime;
+	private LocalDateTime expiryTime;
 
 	public int getQuantity() {
 		return quantity;
@@ -45,13 +45,13 @@ public class ListedCrops {
 		this.postTime = postTime;
 	}
 
-	public LocalDate getExpiryTime() {
+	public LocalDateTime getExpiryTime() {
 		return expiryTime;
 	}
 
 	public void setExpiryTime(String expiryTime) {
-		DateTimeFormatter df = DateTimeFormatter.ofPattern("dd-MM-yy");
-		this.expiryTime = LocalDate.parse(expiryTime,df);
+		DateTimeFormatter df = DateTimeFormatter.ofPattern("dd-MM-yy HH:mm");
+		this.expiryTime = LocalDateTime.parse((expiryTime +" 00:00"),df);
 	}
 
 	public void setQuantity(int quantity) {

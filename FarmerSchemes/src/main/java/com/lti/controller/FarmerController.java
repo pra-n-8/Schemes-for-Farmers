@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lti.model.CropDetails;
+import com.lti.model.CurrentBid;
 import com.lti.model.Farmer;
 import com.lti.model.ListedCrops;
 import com.lti.service.FarmerService;
@@ -55,7 +56,12 @@ public class FarmerController {
 		listedcrops.setExpiryTime(expiryTime);
 		listedcrops.setPostTime(LocalDateTime.now());
 		listedcrops.setCrop(crop);
-		farmerService.register(listedcrops);
+		listedcrops.setQuantity(qunatity);
+		CurrentBid cb = new CurrentBid();
+		cb.setBasePrice(crop.getRate());
+		cb.setCrop(crop);
+		farmerService.register(cb);
+//		farmerService.register(listedcrops);
 		return "ViewRequest.jsp";
 	}
 

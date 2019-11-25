@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.lti.dao.FarmerDao;
 import com.lti.model.CropDetails;
+import com.lti.model.CurrentBid;
 import com.lti.model.Farmer;
 import com.lti.model.ListedCrops;
 
@@ -33,7 +34,10 @@ public class FarmerService {
 
 	public void addToListing(CropDetails cropDetails,Farmer farmer) {
 		cropDetails.setFarmer(farmer);
-		farmerdao.addEntity(cropDetails);
+		CurrentBid cb = new CurrentBid();
+		cb.setBasePrice(cropDetails.getRate());
+		cb.setCrop(cropDetails);
+		farmerdao.addEntity(cb);
 
 	}
 	

@@ -29,10 +29,6 @@ public class CurrentBid {
 	@JoinColumn(name = "crop_id")
 	private CropDetails crop;
 
-	private LocalDate postDate;
-	private LocalDate expiryTime;
-	
-	
 	public int getBidId() {
 		return bidId;
 	}
@@ -57,21 +53,6 @@ public class CurrentBid {
 		this.crop = crop;
 	}
 
-	public LocalDate getPostDate() {
-		return postDate;
-	}
-
-	public void setPostDate(LocalDate postDate) {
-		this.postDate = postDate;
-	}
-
-	public LocalDate getExpiryTime() {
-		return expiryTime;
-	}
-
-	public void setExpiryTime(LocalDate expiryTime) {
-		this.expiryTime = expiryTime;
-	}
 
 	public int getBasePrice() {
 		return basePrice;
