@@ -9,7 +9,7 @@
 <body>
 	<form action="bidderlogin.lti" method="post">
 		<label>Username</label><input type="text" name="username" /> <label>Password</label>
-		<input type ="passwprd" name="pass" />
+		<input type ="password" name="pass" />
 		<input type="submit" value="Submit" />
 	</form>
 </body>

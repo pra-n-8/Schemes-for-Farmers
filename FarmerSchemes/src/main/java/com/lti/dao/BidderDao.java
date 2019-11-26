@@ -45,12 +45,18 @@ public class BidderDao {
 
 	public List<ListedCrops> retrieve(LocalDateTime time) {
 		// TODO Auto-generated method stub
-		Query query= em.createQuery("select lc from ListedCrops lc where lc.expiryTime > :t");
+		Query query= em.createQuery("SELECT cb from CurrentBid cb WHERE cb.crop in(Select lc.crop from ListedCrop lc )");
 		query.setParameter("t", time);
 		List<ListedCrops> li = query.getResultList();
 		return li;
 	}
 
+	public List<CurrentBid> retrieve1(LocalDateTime time) {
+		Query query= em.createQuery("SELECT cb from CurrentBid cb");
+		List<CurrentBid> li = query.getResultList();
+		return li;
+	}
+	
 	public Boolean register(Object obj) {
 		addEntity(obj);
 		return null;

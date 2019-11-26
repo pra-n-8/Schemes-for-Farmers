@@ -48,7 +48,19 @@ public class BidderController {
 		System.out.println("in view");
 		ModelAndView mnv = new ModelAndView("ViewMarketplaceBidder.jsp");
 		List<ListedCrops> li = bidderservice.viewCrops();
+		System.out.println(li.size());
 		mnv.addObject("list", li);
 		return mnv;
 	}
+	
+	@RequestMapping(path="viewcrops1.lti" , method = RequestMethod.POST)
+	public ModelAndView viewlistedCrops1(HttpSession session) {
+		System.out.println("in view");
+		ModelAndView mnv = new ModelAndView("ViewMarketplaceBidder.jsp");
+		List<CurrentBid> li = bidderservice.viewCrops1();
+		System.out.println(li.size());
+		mnv.addObject("list", li);
+		return mnv;
+	}
+	
 }

@@ -14,17 +14,16 @@
 	<table border="1">
 		<tr>
 			<th>Listig Id</th>
-			<th>Posting Time</th>
 			<th>Crop Name</th>
 			<th>Crop type</th>
 			<th>Fertilizer Used</th>
 		</tr>
-		<c:forEach items="${Crops }" var="crops">
+		<c:forEach items="${list}" var="crops">
 			<tr>
 			<td>${crops.listingId }</td>
-			<td>${crops.crop.cropName }</td>
-			<td>${crops.crop.cropType }</td>
-			<td>${crops.crop.fertilizerType}</td>
+			<td>${ crops.crop.cropName}</td>
+			<td>${ crops.crop.cropType}</td>
+			<td>${ crops.crop.fertilizerType}</td>
 			</tr>
 		</c:forEach>
 	</table>
