@@ -82,6 +82,12 @@ public class CropDetails {
 	public void setFarmer(Farmer farmer) {
 		this.farmer = farmer;
 	}
+
+	@Override
+	public String toString() {
+		return "CropDetails [cropId=" + cropId + ", cropName=" + cropName + ", cropType=" + cropType
+				+ ", fertilizerType=" + fertilizerType + ", rate=" + rate + ", farmer=" + farmer + "]";
+	}
 	
 	
 }

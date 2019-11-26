@@ -14,7 +14,7 @@
 		</legend>
 		<form action="bidderlogin.lti" method="post">
 			<div class="imgcontainer">
-				<img src="adminIcon.jpg" name="img1">
+				<img src="images/adminIcon.jpg" name="img1">
 			</div>
 
 			<div class="container">
