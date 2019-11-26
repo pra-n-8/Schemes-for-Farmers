@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lti.model.Bidder;
 import com.lti.model.CurrentBid;
+import com.lti.model.DisplayBids;
 import com.lti.model.ListedCrops;
 
 @Component("bidderdao")
@@ -51,12 +52,6 @@ public class BidderDao {
 		return li;
 	}
 
-	public List<CurrentBid> retrieve1(LocalDateTime time) {
-		Query query= em.createQuery("SELECT cb from CurrentBid cb");
-		List<CurrentBid> li = query.getResultList();
-		return li;
-	}
-	
 	public Boolean register(Object obj) {
 		addEntity(obj);
 		return null;
