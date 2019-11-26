@@ -33,11 +33,6 @@ public class FarmerService {
 	}
 
 	public void addToListing(CropDetails cropDetails,Farmer farmer) {
-		cropDetails.setFarmer(farmer);
-		CurrentBid cb = new CurrentBid();
-		cb.setBasePrice(cropDetails.getRate());
-		cb.setCrop(cropDetails);
-		farmerdao.addEntity(cb);
 
 	}
 	
@@ -49,8 +44,8 @@ public class FarmerService {
 		// TODO Auto-generated method stub
 		CropDetails crop=(CropDetails)farmerdao.retrieve(cropId, CropDetails.class);
 		CurrentBid cb = new CurrentBid();
-		cb.setBasePrice(crop.getRate());
-		cb.setCrop(crop);
+//		cb.setBasePrice(crop.getRate());
+//		cb.setCrop(crop);
 		farmerdao.addEntity(cb);
 	}
 	

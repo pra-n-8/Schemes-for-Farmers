@@ -32,8 +32,8 @@ BidderDao bidder;
 	public List<ListedCrops> viewCrops(){
 		return bidder.retrieve(LocalDateTime.now());
 	}
-	public List<CurrentBid> viewCrops1(){
-		return bidder.retrieve1(LocalDateTime.now());
+	public List<ListedCrops> viewCrops1(){
+		return bidder.retrieve(LocalDateTime.now());
 	}
 	
 }

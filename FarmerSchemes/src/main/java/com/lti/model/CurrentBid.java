@@ -1,7 +1,5 @@
 package com.lti.model;
 
-import java.time.LocalDate;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,15 +17,16 @@ public class CurrentBid {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "bid")
 	@SequenceGenerator(name = "bid",sequenceName="current_seq", initialValue = 1000, allocationSize = 2)
 	private int bidId;
-	private int basePrice;
+	
+	private double amount;
 
 	@ManyToOne(cascade = CascadeType.ALL) // check if bidder is added dynamiclly for each and every bid
 	@JoinColumn(name = "bidderId")
 	private Bidder bidder;
 
 	@ManyToOne
-	@JoinColumn(name = "crop_id")
-	private CropDetails crop;
+	@JoinColumn(name = "listing_id")
+	private ListedCrops crop;
 
 	public int getBidId() {
 		return bidId;
@@ -45,21 +44,18 @@ public class CurrentBid {
 		this.bidder = bidder;
 	}
 
-	public CropDetails getCrop() {
+	public ListedCrops getCrop() {
 		return crop;
 	}
-
-	public void setCrop(CropDetails crop) {
+	public void setCrop(ListedCrops crop) {
 		this.crop = crop;
 	}
 
-
-	public int getBasePrice() {
-		return basePrice;
+	public double getAmount() {
+		return amount;
 	}
-
-	public void setBasePrice(int basePrice) {
-		this.basePrice = basePrice;
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
 
 }

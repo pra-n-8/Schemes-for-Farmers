@@ -1,9 +1,7 @@
 package com.lti.model;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -12,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "LISTED_CROPS")
@@ -32,7 +31,16 @@ public class ListedCrops {
 	private int basePrice;
 	private LocalDateTime postTime;
 	private LocalDateTime expiryTime;
+	
+	@Transient
+	private double maxBidAmount;
 
+	public double getMaxBidAmount() {
+		return maxBidAmount;
+	}
+	public void setMaxBidAmount(double maxBidAmount) {
+		this.maxBidAmount = maxBidAmount;
+	}
 	public int getQuantity() {
 		return quantity;
 	}
