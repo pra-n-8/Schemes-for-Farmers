@@ -74,6 +74,10 @@ bidderservice.register(l);
 		mnv.addObject("list", li);
 		return mnv;
 	}
-	
+	@RequestMapping(path="logout.lti" , method = RequestMethod.POST)
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "home.jsp";
+	}
 	//showPastbids
 }
