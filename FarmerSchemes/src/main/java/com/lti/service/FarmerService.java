@@ -40,15 +40,6 @@ public class FarmerService {
 		return farmerdao.retriveCrops(farmer);
 	}
 
-	public void AuctionCrop(int cropId) {
-		// TODO Auto-generated method stub
-		CropDetails crop=(CropDetails)farmerdao.retrieve(cropId, CropDetails.class);
-		CurrentBid cb = new CurrentBid();
-//		cb.setBasePrice(crop.getRate());
-//		cb.setCrop(crop);
-		farmerdao.addEntity(cb);
-	}
-	
 //	List<CropDetails> li = farmer.getCrop();
 //	li.add(cropDetails);
 //	farmer.setCrop(li);

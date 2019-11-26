@@ -35,5 +35,11 @@ BidderDao bidder;
 	public List<ListedCrops> viewCrops1(){
 		return bidder.retrieve(LocalDateTime.now());
 	}
+
+	public ListedCrops getListedCrop(int id) {
+		// TODO Auto-generated method stub
+		
+		return bidder.getCrop(id);
+	}
 	
 }

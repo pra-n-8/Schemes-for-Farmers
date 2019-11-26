@@ -28,12 +28,12 @@ public class ListedCrops {
 	private Farmer farmer;
 	
 	private int quantity;
-	private int basePrice;
+	private double basePrice;
 	private LocalDateTime postTime;
 	private LocalDateTime expiryTime;
 	
 	@Transient
-	private double maxBidAmount;
+	private double maxBidAmount = basePrice;
 
 	public double getMaxBidAmount() {
 		return maxBidAmount;
@@ -66,11 +66,11 @@ public class ListedCrops {
 		this.quantity = quantity;
 	}
 
-	public int getBasePrice() {
+	public double getBasePrice() {
 		return basePrice;
 	}
 
-	public void setBasePrice(int basePrice) {
+	public void setBasePrice(double basePrice) {
 		this.basePrice = basePrice;
 	}
 

@@ -34,7 +34,7 @@ public class BidderController {
 		try {
 		bidder=(Bidder)bidderservice.login(username,password);
 
-		session.setAttribute("Bidder", bidder);
+		session.setAttribute("bidder", bidder);
 		}
 		catch(NullPointerException e){
 			System.out.println(e);
@@ -50,17 +50,26 @@ public class BidderController {
 		List<ListedCrops> li = bidderservice.viewCrops();
 		System.out.println(li.size());
 		mnv.addObject("list", li);
+		mnv.addObject("session",session);
 		return mnv;
 	}
 	
-	@RequestMapping(path="viewcrops1.lti" , method = RequestMethod.POST)
-	public ModelAndView viewlistedCrops1(HttpSession session) {
+	@RequestMapping(path="bidForcrop.lti" , method = RequestMethod.POST)
+	public ModelAndView BidCrop(@RequestParam(name="listingId") int id,@RequestParam(name="Amount") double amount ,HttpSession session) {
 		System.out.println("in view");
+		CurrentBid cb = new CurrentBid();
+		cb.setAmount(amount);
+		cb.setBidder((Bidder)session.getAttribute("bidder"));
+		cb.setCrop(bidderservice.getListedCrop(id));
+		bidderservice.register(cb);
+		ListedCrops crop = bidderservice.getListedCrop(id);
+		bidderservice.register(crop);
 		ModelAndView mnv = new ModelAndView("ViewMarketplaceBidder.jsp");
-		List<ListedCrops> li = bidderservice.viewCrops1();
+		List<ListedCrops> li = bidderservice.viewCrops();
 		System.out.println(li.size());
 		mnv.addObject("list", li);
 		return mnv;
 	}
+	
 	
 }
