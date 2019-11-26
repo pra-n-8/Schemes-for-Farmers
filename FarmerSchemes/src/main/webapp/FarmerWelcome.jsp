@@ -10,7 +10,7 @@
 
 <body>
 	<ul class="right">
-		<li><a href="login.jsp">Logout</a></li>
+		<li><a href="logout.lti">Logout</a></li>
 		<li><a class="active" href="FarmerWelcome.jsp">Home</a></li>
 	</ul>
 	<%

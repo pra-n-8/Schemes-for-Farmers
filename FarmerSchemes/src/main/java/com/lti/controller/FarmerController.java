@@ -74,6 +74,12 @@ public class FarmerController {
 		return mnv;
 	}
 	
+	@RequestMapping(path = "logout.lti", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "home.jsp";
+	}
+	
 //	SoldCrops
 	
 //	List<CropDetails> searchList = farmerService.getCrops((Farmer)session.getAttribute("farmer"));

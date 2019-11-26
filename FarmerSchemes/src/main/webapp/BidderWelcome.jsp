@@ -9,7 +9,7 @@
 </head>
 <body>
 	<ul class="right">
-	<li><a href="home.jsp">Logout</a></li>
+	<li><a href="logout.lti">Logout</a></li>
 		<li><a class="active" href="BidderWelcome.jsp">Home</a></li>
 	</ul>
 	<section>
