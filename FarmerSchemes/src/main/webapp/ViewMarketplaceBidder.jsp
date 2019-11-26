@@ -19,7 +19,7 @@
 			<th>Crop type</th>
 			<th>Fertilizer Used</th>
 		</tr>
-		<c:forEach items="${list }" var="crops">
+		<c:forEach items="${Crops }" var="crops">
 			<tr>
 			<td>${crops.listingId }</td>
 			<td>${crops.crop.cropName }</td>

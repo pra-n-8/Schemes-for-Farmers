@@ -25,7 +25,7 @@ public class CurrentBid {
 	@JoinColumn(name = "bidderId")
 	private Bidder bidder;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "crop_id")
 	private CropDetails crop;
 

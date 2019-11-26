@@ -50,29 +50,33 @@ public class FarmerController {
 	@RequestMapping(path = "placeCrops.lti", method = RequestMethod.POST)
 	public String holdAuction(CropDetails crop, HttpSession session, @RequestParam(name = "quantity") int qunatity,
 			@RequestParam(name = "expiryTime") String expiryTime) {
-		ListedCrops listedcrops = new ListedCrops();
-		listedcrops.setBasePrice(crop.getRate());
-		listedcrops.setFarmer((Farmer) session.getAttribute("farmer"));
-		listedcrops.setExpiryTime(expiryTime);
-		listedcrops.setPostTime(LocalDateTime.now());
-		listedcrops.setCrop(crop);
-		listedcrops.setQuantity(qunatity);
-		CurrentBid cb = new CurrentBid();
-		cb.setBasePrice(crop.getRate());
-		cb.setCrop(crop);
-		farmerService.register(cb);
-		listedcrops.setFarmer((Farmer) session.getAttribute("farmer"));
-		crop.setFarmer((Farmer) session.getAttribute("farmer"));
-		farmerService.register(listedcrops);
-		return "ViewRequest.jsp";
-	}
+		crop.setFarmer((Farmer)session.getAttribute("farmer"));
+		ListedCrops listedCrops = new ListedCrops();
+		listedCrops.setCrop(crop);
+		listedCrops.setBasePrice(crop.getRate());
+		listedCrops.setFarmer((Farmer)session.getAttribute("farmer"));
+		listedCrops.setQuantity(qunatity);
+		listedCrops.setExpiryTime(expiryTime);
+		listedCrops.setPostTime(LocalDateTime.now());
+		farmerService.register(listedCrops);
 
+		return "home.jsp";
+	}
+	@RequestMapping(path = "goToViewPage.lti", method = RequestMethod.POST)
 	public ModelAndView viewCrops(HttpSession session) {
 		ModelAndView mnv = new ModelAndView("ViewRequest.jsp");
 		List<CropDetails> crops = farmerService.getCrops((Farmer) session.getAttribute("farmer"));
 		System.out.println(crops.size());
+		Farmer farmer = (Farmer)session.getAttribute("farmer");
+		System.out.println(farmer.getFarmerName());
 		mnv.addObject("Crops", crops);
 		return mnv;
+	}
+	
+	@RequestMapping(path="putOnSale.lti", method = RequestMethod.POST)
+	public String putONSale(@RequestParam(name="cropId") int cropId, HttpSession session) {
+		farmerService.AuctionCrop(cropId);
+		return "home.jsp";
 	}
 //	List<CropDetails> searchList = farmerService.getCrops((Farmer)session.getAttribute("farmer"));
 //	System.out.println( searchList.size());

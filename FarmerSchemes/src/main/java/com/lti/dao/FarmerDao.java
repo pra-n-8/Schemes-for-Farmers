@@ -43,8 +43,7 @@ public class FarmerDao{
 	}
 
 	public Object retrieve(int Id, Class clazz) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(clazz, Id);
 	}
 
 	public Boolean register(Object obj) {
