@@ -1,5 +1,7 @@
 package com.lti.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.lti.interfaces.AdminServiceInterface;
 import com.lti.model.Admin;
+import com.lti.model.CropDetails;
 @Component("admindao")
 public class AdminDao implements AdminServiceInterface  {
 @PersistenceContext 
@@ -26,6 +29,13 @@ private EntityManager em;
 			}
 			
 			return admin;
+	}
+	
+	
+	public List<CropDetails> fetchCropDetails() {
+		Query q1 = em.createQuery("SELECT c FROM table_cropdetails c");
+		List<CropDetails> crops = q1.getResultList();
+		return crops;
 	}
 
 }

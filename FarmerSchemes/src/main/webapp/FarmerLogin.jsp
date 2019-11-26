@@ -4,12 +4,26 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Farmer Login Page</title>
+<link rel="stylesheet" type="text/css" href="css/design.css">
 </head>
 <body>
-<form action="farmerlogin.lti" method="post">
-<label>Username</label><input type="text" name="username" />
-<label>Password</label><input type="passwprd" name="pass" />
-<input type="submit" value="Submit"/>
+	<fieldset style="margin-left: 400px; margin-right: 400px;">
+		<legend style="text-align: center;">
+			<h1>Farmer Login</h1>
+		</legend>
+		<form action="farmerlogin.lti" method="post">
+			<div class="imgcontainer">
+				<img src="adminIcon.jpg" name="img1">
+			</div>
+
+			<div class="container">
+				<label for="uname"><b>Username</b></label> <input type="text"
+					placeholder="Enter Username" name="username" required> 
+				<label for="psw"><b>Password</b></label> <input type="password"
+					placeholder="Enter Password" name="pass" required>
+				<button type="submit">Login</button>
+			</div>
+		</form>
 </body>
-</html>
+</html> 

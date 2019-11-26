@@ -1,5 +1,7 @@
 package com.lti.service;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
@@ -9,6 +11,7 @@ import com.lti.interfaces.AdminServiceInterface;
 import com.lti.interfaces.GenericInterface;
 import com.lti.model.Admin;
 import com.lti.model.Bidder;
+import com.lti.model.CropDetails;
 
 @Service("adminservice")
 public class AdminService implements AdminServiceInterface{
@@ -23,6 +26,11 @@ public class AdminService implements AdminServiceInterface{
 			return null;
 		}
 		return admin;
+	}
+
+	public List<CropDetails> fetchCropDetails() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

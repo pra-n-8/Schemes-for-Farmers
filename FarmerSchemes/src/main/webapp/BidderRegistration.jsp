@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="Registration.css">
+<script type="text/javascript" src="registration.js"></script>
 <title>Bidder Registration</title>
 </head>
 <body>

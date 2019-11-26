@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.lti.dao.InputDao;
 import com.lti.interfaces.RegistrationLoginInterface;
+import com.lti.model.Auction;
 import com.lti.model.Bidder;
 import com.lti.model.Farmer;
 
@@ -32,8 +34,13 @@ public class BidderController {
 		catch(NullPointerException e){
 			System.out.println(e);
 		}
-		//session code
-		
+		//session code		
+		return "home.jsp";
+	}
+	@RequestMapping(path="auction.lti", method = RequestMethod.POST)
+	public String Put_auction(Auction auction) {
+		InputDao dao = new InputDao();
+		System.out.println(auction);
 		return "home.jsp";
 	}
 }
