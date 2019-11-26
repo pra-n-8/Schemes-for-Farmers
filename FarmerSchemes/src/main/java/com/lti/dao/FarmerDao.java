@@ -8,11 +8,13 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.lti.model.CropDetails;
 import com.lti.model.Farmer;
 
 @Component("farmerdao")
+@SessionAttributes("farmer")
 public class FarmerDao{
 
 	@PersistenceContext
@@ -21,9 +23,8 @@ public class FarmerDao{
 	@Transactional
 	public void addEntity(Object entity) {
 		em.merge(entity);
-
 	}
-
+	
 	@Transactional
 	public Object login(String username, String password) {
 		Farmer farmer;
