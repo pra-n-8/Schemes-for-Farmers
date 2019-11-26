@@ -1,46 +1,51 @@
 package com.lti.controller;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.lti.dao.InputDao;
-import com.lti.interfaces.RegistrationLoginInterface;
-import com.lti.model.Auction;
+import org.springframework.web.servlet.ModelAndView;
 import com.lti.model.Bidder;
-import com.lti.model.Farmer;
+import com.lti.model.ListedCrops;
+import com.lti.service.BidderService;
 
 @Controller
 public class BidderController {
+	@Autowired
+	BidderService bidderservice;
 
 	@RequestMapping(path = "bidderRegistration.lti", method = RequestMethod.POST)
 	public String display(Bidder bidder) {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-		RegistrationLoginInterface bi = (RegistrationLoginInterface)ctx.getBean("bidderservice");
-		System.out.println(bi.register(bidder));
+		
+		System.out.println(bidderservice.register(bidder));
 		return "home.jsp";
 	}
 	@RequestMapping(path="bidderlogin.lti", method = RequestMethod.POST)
-	public String loginBidder(@RequestParam(name="username") String username,@RequestParam(name="pass") String password) {
+	public String loginBidder(@RequestParam(name="username") String username,@RequestParam(name="pass") String password,HttpSession session) {
 		Bidder bidder;
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-		RegistrationLoginInterface si = (RegistrationLoginInterface) ctx.getBean("bidderservice");
+		
 		try {
-		bidder=(Bidder)si.login(username,password);
+		bidder=(Bidder)bidderservice.login(username,password);
+
+		session.setAttribute("Bidder", bidder);
 		}
 		catch(NullPointerException e){
 			System.out.println(e);
 		}
-		//session code		
-		return "home.jsp";
+//		session.setAttribute("bidder", bidder);
+		return "ViewMarketplaceBidder.jsp";
 	}
-	@RequestMapping(path="auction.lti", method = RequestMethod.POST)
-	public String Put_auction(Auction auction) {
-		InputDao dao = new InputDao();
-		System.out.println(auction);
-		return "home.jsp";
+	@RequestMapping(path="viewcrops.lti" , method = RequestMethod.POST)
+	public ModelAndView viewlistedCrops(HttpSession session) {
+		System.out.println("in view");
+		ModelAndView mnv = new ModelAndView("ViewMarketplaceBidder.jsp");
+		List<ListedCrops> li = bidderservice.viewCrops();
+		mnv.addObject("list", li);
+		return mnv;
 	}
 }

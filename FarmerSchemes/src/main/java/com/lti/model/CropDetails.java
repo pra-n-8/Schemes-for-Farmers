@@ -34,7 +34,6 @@ public class CropDetails {
 	public void setCropId(int cropId) {
 		this.cropId = cropId;
 	}
-
 	public String getCropType() {
 		return cropType;
 	}

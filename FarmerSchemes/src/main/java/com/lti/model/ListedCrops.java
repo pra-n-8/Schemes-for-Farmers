@@ -1,8 +1,11 @@
 package com.lti.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,7 +20,7 @@ public class ListedCrops {
 	@GeneratedValue
 	private int listingId;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "crop_id")
 	private CropDetails crop;
 	
@@ -46,8 +49,9 @@ public class ListedCrops {
 		return expiryTime;
 	}
 
-	public void setExpiryTime(LocalDateTime expiryTime) {
-		this.expiryTime = expiryTime;
+	public void setExpiryTime(String expiryTime) {
+		DateTimeFormatter df = DateTimeFormatter.ofPattern("dd-MM-yy HH:mm");
+		this.expiryTime = LocalDateTime.parse((expiryTime +" 00:00"),df);
 	}
 
 	public void setQuantity(int quantity) {

@@ -1,16 +1,12 @@
 package com.lti.testing;
 
 import static org.junit.Assert.assertNotNull;
-
-import java.util.List;
-
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import com.lti.dao.AdminDao;
 import com.lti.dao.InputDao;
-import com.lti.interfaces.GenericInterface;
+//github.com/pra-n-8/Schemes-for-Farmers.git
 import com.lti.model.Admin;
 import com.lti.model.Auction;
 import com.lti.model.CropDetails;
@@ -20,10 +16,13 @@ import com.lti.model.ListedCrops;
 
 public class Testing {
 
+	@Autowired
+	InputDao dao;
+	
 	@Test
 	public void test() {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
+		
 		Farmer farmer1 = new Farmer();
 		farmer1.setFarmerName("medhavi");
 		farmer1.setFarmerAddress("Banglore");
@@ -41,7 +40,7 @@ public class Testing {
 public void loginTest()
 	{
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
+
 		Farmer farmer = (Farmer)dao.retrieve(81, Farmer.class);
 		System.out.println(farmer.getFarmerName());
 	}
@@ -49,7 +48,7 @@ public void loginTest()
 	@Test
 	public void addAdmin() {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
+
 		Admin ad = new Admin();
 		ad.setAdminUname("admin");
 		ad.setAdminPassword("admin");
@@ -81,16 +80,4 @@ public void loginTest()
 	}
 	
 	
-	@Test
-	public void fetchcrop() {
-		
-		AdminDao dao = new AdminDao();
-		List<CropDetails> crop = dao.fetchCropDetails();
-		assertNotNull(crop);
-		for( CropDetails c : crop)
-		{
-			System.out.println(c);
-		}
-		
-	}
 }

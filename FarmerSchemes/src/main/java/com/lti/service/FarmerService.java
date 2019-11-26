@@ -1,41 +1,61 @@
 package com.lti.service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import java.util.List;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.lti.interfaces.GenericInterface;
-import com.lti.interfaces.RegistrationLoginInterface;
+import com.lti.dao.FarmerDao;
+import com.lti.model.CropDetails;
+import com.lti.model.CurrentBid;
 import com.lti.model.Farmer;
+import com.lti.model.ListedCrops;
 
 @Service("farmerService")
-public class FarmerService implements RegistrationLoginInterface {
-	@PersistenceContext
-	private EntityManager em;
-
+public class FarmerService {
+	
+	@Autowired
+	private FarmerDao farmerdao;
+	
 	public Boolean register(Object obj) {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-		GenericInterface dao1 = (GenericInterface) ctx.getBean("farmerdao");
-		dao1.addEntity(obj);
+		farmerdao.addEntity(obj);
 		return true;
 	}
 
 	public Object login(String username, String password) {
 		Farmer farmer;
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-		RegistrationLoginInterface dao1 = (RegistrationLoginInterface) ctx.getBean("farmerdao");
 		try {
-		farmer = (Farmer) dao1.login(username, password);
-		}
-		catch(NullPointerException e)
-		{
+			farmer = (Farmer) farmerdao.login(username, password);
+		} catch (NullPointerException e) {
 			return null;
 		}
 		return farmer;
 	}
 
+	public void addToListing(CropDetails cropDetails,Farmer farmer) {
+		cropDetails.setFarmer(farmer);
+		CurrentBid cb = new CurrentBid();
+		cb.setBasePrice(cropDetails.getRate());
+		cb.setCrop(cropDetails);
+		farmerdao.addEntity(cb);
+
+	}
+	
+	public List<CropDetails> getCrops(Farmer farmer){
+		return farmerdao.retriveCrops(farmer);
+	}
+
+	public void AuctionCrop(int cropId) {
+		// TODO Auto-generated method stub
+		CropDetails crop=(CropDetails)farmerdao.retrieve(cropId, CropDetails.class);
+		CurrentBid cb = new CurrentBid();
+		cb.setBasePrice(crop.getRate());
+		cb.setCrop(crop);
+		farmerdao.addEntity(cb);
+	}
+	
+//	List<CropDetails> li = farmer.getCrop();
+//	li.add(cropDetails);
+//	farmer.setCrop(li);
+//	farmerdao.addEntity(farmer);
 }

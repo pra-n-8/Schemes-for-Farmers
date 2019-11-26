@@ -1,5 +1,7 @@
 package com.lti.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -7,15 +9,16 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.lti.interfaces.GenericInterface;
-import com.lti.interfaces.RegistrationLoginInterface;
+import com.lti.model.CropDetails;
 import com.lti.model.Farmer;
 
 @Component("farmerdao")
-public class FarmerDao implements GenericInterface, RegistrationLoginInterface {
+public class FarmerDao{
+
 	@PersistenceContext
 	private EntityManager em;
 
+	@Transactional
 	public void addEntity(Object entity) {
 		em.merge(entity);
 
@@ -40,13 +43,21 @@ public class FarmerDao implements GenericInterface, RegistrationLoginInterface {
 	}
 
 	public Object retrieve(int Id, Class clazz) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(clazz, Id);
 	}
 
 	public Boolean register(Object obj) {
 		addEntity(obj);
 		return null;
+	}
+	
+	@Transactional
+	public List<CropDetails> retriveCrops(Farmer farmer){
+		Query query = em.createQuery("select c from CropDetails c where c.farmer = :ut");
+		query.setParameter("ut", farmer);
+		
+		List<CropDetails> crop = query.getResultList();
+		return crop;
 	}
 
 }
