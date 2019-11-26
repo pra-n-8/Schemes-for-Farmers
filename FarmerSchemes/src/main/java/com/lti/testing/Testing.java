@@ -1,14 +1,15 @@
 package com.lti.testing;
 
-import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.lti.dao.InputDao;
 //github.com/pra-n-8/Schemes-for-Farmers.git
 import com.lti.model.Admin;
 import com.lti.model.Auction;
+import com.lti.model.Bidder;
 import com.lti.model.CropDetails;
 import com.lti.model.CurrentBid;
 import com.lti.model.Farmer;
@@ -63,18 +64,25 @@ public void loginTest()
 	@Test
 	public void BiddingTest()
 	{
-		InputDao dao = new InputDao();
-		Auction auc = new Auction();
-		auc.setBID_AMOUNT(1000);
-		dao.addEntity(auc);
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
+		InputDao dao =  (InputDao) ctx.getBean("genericDao");
+		//InputDao dao = new InputDao();
+		CurrentBid bid = new CurrentBid();
+		Bidder bidder= (Bidder)dao.retrieve(10000, Bidder.class);
+		ListedCrops lcp =(ListedCrops)dao.retrieve(203, ListedCrops.class);
+		bid.setBidder(bidder);
+		bid.setCrop(lcp);
+		bid.setAmount(1000);
+		dao.addEntity(bid);
 	}
 	
 	@Test
 	public void Bidding()
 	{
-		InputDao dao = new InputDao();
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
+		//InputDao dao = new InputDao();
 		CurrentBid cid = new CurrentBid();
-		cid.setBasePrice(12323);
+		//cid.setBasePrice(12323);
 		cid.setBidId(546);
 		dao.addEntity(cid);
 	}

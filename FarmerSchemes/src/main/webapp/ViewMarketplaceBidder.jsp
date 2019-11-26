@@ -24,8 +24,15 @@
 			<td>${ crops.crop.cropName}</td>
 			<td>${ crops.crop.cropType}</td>
 			<td>${ crops.crop.fertilizerType}</td>
+			<td>${crops.basePrice }</td>
+			<td>${crops.maxBidAmount }
 			</tr>
 		</c:forEach>
 	</table>
+	<form action="bidForcrop.lti" method="post">
+	<input type="number" paceholder="Enter Listing id" name="listingId" />
+	<input type="number" paceholder="Enter Amount" name="Amount" />
+		<input type="submit" value="Submit">
+	</form>
 </body>
 </html>

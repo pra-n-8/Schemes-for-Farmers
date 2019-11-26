@@ -3,7 +3,7 @@
 <!DOCTYPE html >
 <html>
 <head>
-<meta charset=ISO-8859-1">
+<meta charset=ISO-8859-1>
 <title>Admin Home</title>
 <link rel="stylesheet" type="text/css" href="css/InsideHome.css">
 </head>
@@ -12,7 +12,6 @@
 	<li><a href="login.jsp">Logout</a></li>
 		<li><a class="active" href="adminpage.jsp">Home</a></li>
 	</ul>
-
 	<h1 align="center">WELCOME ADMIN</h1>
 	<section>
 <div class="container">
