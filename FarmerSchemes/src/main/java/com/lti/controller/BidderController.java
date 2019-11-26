@@ -35,7 +35,7 @@ public class BidderController {
 		
 		try {
 		bidder=(Bidder)bidderservice.login(username,password);
-
+		session.setAttribute("bname", bidder.getBidderName());
 		session.setAttribute("bidder", bidder);
 		}
 		catch(NullPointerException e){
@@ -43,7 +43,7 @@ public class BidderController {
 		}
 		
 //		session.setAttribute("bidder", bidder);
-		return "ViewMarketplaceBidder.jsp";
+		return "BidderWelcome.jsp";
 	}
 	@RequestMapping(path="viewcrops.lti" , method = RequestMethod.POST)
 	public ModelAndView viewlistedCrops(HttpSession session) {
@@ -64,8 +64,10 @@ public class BidderController {
 		cb.setBidder((Bidder)session.getAttribute("bidder"));
 		cb.setCrop(bidderservice.getListedCrop(id));
 		bidderservice.register(cb);
-		ListedCrops crop = bidderservice.getListedCrop(id);
-		bidderservice.register(crop);
+		Bidder bidder = (Bidder)session.getAttribute("bidder");
+ListedCrops l = bidderservice.getListedCrop(id);
+l.setBasePrice(amount);
+bidderservice.register(l);
 		ModelAndView mnv = new ModelAndView("ViewMarketplaceBidder.jsp");
 		List<ListedCrops> li = bidderservice.viewCrops();
 		System.out.println(li.size());
@@ -73,5 +75,5 @@ public class BidderController {
 		return mnv;
 	}
 	
-	
+	//showPastbids
 }

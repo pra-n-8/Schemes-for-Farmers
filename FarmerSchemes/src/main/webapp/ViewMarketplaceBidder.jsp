@@ -8,15 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="viewcrops.lti" method="post">
-		<input type="submit" value="Submit">
-	</form>
+	
 	<table border="1">
 		<tr>
 			<th>Listig Id</th>
 			<th>Crop Name</th>
 			<th>Crop type</th>
 			<th>Fertilizer Used</th>
+			<th>Bid Amount</th>
 		</tr>
 		<c:forEach items="${list}" var="crops">
 			<tr>
@@ -25,7 +24,6 @@
 			<td>${ crops.crop.cropType}</td>
 			<td>${ crops.crop.fertilizerType}</td>
 			<td>${crops.basePrice }</td>
-			<td>${crops.maxBidAmount }
 			</tr>
 		</c:forEach>
 	</table>

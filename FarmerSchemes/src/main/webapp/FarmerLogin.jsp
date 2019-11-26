@@ -24,6 +24,8 @@
 					placeholder="Enter Password" name="pass" required>
 				<button type="submit">Login</button>
 			</div>
+			
+			<div><a href="BidderRegistration.jsp">New user ? Register here!</a></div>
 		</form>
 </body>
 </html> 

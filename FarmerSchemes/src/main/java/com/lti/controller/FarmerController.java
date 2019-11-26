@@ -40,11 +40,11 @@ public class FarmerController {
 			session.setAttribute("fid", farmer.getFarmerId());
 			session.setAttribute("farmer", farmer);
 		} catch (NullPointerException e) {
-			return "FarmerRegistration.jsp";
+			return "FarmerResigtration.jsp";
 		}
 		// session code
 
-		return "Sell_Request.jsp";
+		return "FarmerWelcome.jsp";
 	}
 
 	@RequestMapping(path = "placeCrops.lti", method = RequestMethod.POST)
@@ -60,18 +60,21 @@ public class FarmerController {
 		listedCrops.setPostTime(LocalDateTime.now());
 		farmerService.register(listedCrops);
 
-		return "home.jsp";
+		return "FarmerWelcome.jsp";
 	}
 	@RequestMapping(path = "goToViewPage.lti", method = RequestMethod.POST)
 	public ModelAndView viewCrops(HttpSession session) {
-		ModelAndView mnv = new ModelAndView("ViewRequest.jsp");
-		List<CropDetails> crops = farmerService.getCrops((Farmer) session.getAttribute("farmer"));
+		ModelAndView mnv = new ModelAndView("ViewMarketplaceFarmer.jsp");
+		
+		List<ListedCrops> crops = farmerService.getCrops((Farmer) session.getAttribute("farmer"));
 		System.out.println(crops.size());
 		Farmer farmer = (Farmer)session.getAttribute("farmer");
 		System.out.println(farmer.getFarmerName());
 		mnv.addObject("Crops", crops);
 		return mnv;
 	}
+	
+//	SoldCrops
 	
 //	List<CropDetails> searchList = farmerService.getCrops((Farmer)session.getAttribute("farmer"));
 //	System.out.println( searchList.size());

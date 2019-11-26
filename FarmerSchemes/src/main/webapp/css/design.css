@@ -75,7 +75,6 @@ margin:0px;
     font-weight: bolder;
     color: green;
     margin-top: 0px;
-    margin-left: 400px;
 }
 
 #block {
@@ -87,4 +86,8 @@ margin:0px;
     margin-left: 300px;
     margin-top: 20px;
     background-color: greenyellow;
+}
+
+a {
+	align:Center;
 }
