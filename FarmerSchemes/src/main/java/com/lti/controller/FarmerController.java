@@ -73,11 +73,6 @@ public class FarmerController {
 		return mnv;
 	}
 	
-	@RequestMapping(path="putOnSale.lti", method = RequestMethod.POST)
-	public String putONSale(@RequestParam(name="cropId") int cropId, HttpSession session) {
-		farmerService.AuctionCrop(cropId);
-		return "home.jsp";
-	}
 //	List<CropDetails> searchList = farmerService.getCrops((Farmer)session.getAttribute("farmer"));
 //	System.out.println( searchList.size());
 //	ModelAndView mav = new ModelAndView("");
