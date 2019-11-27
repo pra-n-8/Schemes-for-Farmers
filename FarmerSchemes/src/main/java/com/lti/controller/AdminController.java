@@ -30,22 +30,23 @@ public class AdminController{
     {  
 		Admin admin;
 		
-		try {
-		admin=adminservice.loginCheck(username, password);
-		
-		}
-		catch(NullPointerException e){
+
+		admin = adminservice.loginCheck(username, password);
+if(admin==null)		
+{
+
 			ModelAndView mnv = new ModelAndView("AdminLogin.jsp");
 			mnv.addObject("Error","invalid credentials");
 			return mnv;
 		}
 		//session code
+else {
 		session.setAttribute("username", "username");
 		session.setAttribute("pass", "password");
 		ModelAndView mnv = new ModelAndView("AdminWelcome.jsp");
         return mnv;
     }
-	
+    }
 	
 	@RequestMapping(path="viewrequests.lti" , method = RequestMethod.POST)
 	public ModelAndView viewlistedCrops(HttpSession session) {

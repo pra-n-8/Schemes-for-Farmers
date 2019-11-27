@@ -68,6 +68,7 @@ fieldset {
 #contact input[type="text"],
 #contact input[type="email"],
 #contact input[type="number"],
+#contact input[type="datetime"],
 #contact textarea {
   width: 100%;
   border: 1px solid #ccc;
@@ -78,6 +79,7 @@ fieldset {
 #contact input[type="text"]:hover,
 #contact input[type="email"]:hover,
 #contact input[type="number"]:hover,
+#contact input[type="datetime"],
 #contact textarea:hover {
   border: 2px solid green;
 }
