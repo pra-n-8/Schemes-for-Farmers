@@ -11,7 +11,7 @@
 <body>
 	<ul class="right">
 		<li><a href="logout.lti">Logout</a></li>
-		<li><a class="active" href="FarmerWelcome.jsp">Home</a></li>
+		<li><a class="active" href="home.jsp">Home</a></li>
 	</ul>
 	<%
 		if (session != null) {
@@ -26,7 +26,7 @@
 		<div class="container">
 			<form method="post" action="Sell_Request.jsp">
 				<div>
-					<input type="submit" value="Place sell request" class="btn" />
+					<input type="submit" value="Place sale request" class="btn" />
 				</div>
 			</form>
 			<form method="post" action="soldCrop.lti">

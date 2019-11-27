@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<!--  <link rel="stylesheet" type="text/css" href="css/View.css">-->
-<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/View.css">
+<title>View Requests Page</title>
 </head>
 <body>
 	<%
@@ -16,6 +16,12 @@
 			out.println("<h1>Login to view CropDetails</h1>");
 		}
 	%>
+	
+	<ul class="right">
+	<li><a href="logout.lti">Logout</a></li>
+		<li><a class="active" href="FarmerWelcome.jsp">Home</a></li>
+	</ul>
+	<section>
 	<table>
 		<tr>
 			<th>Crop id</th>

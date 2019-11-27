@@ -10,7 +10,7 @@
 <body>
 	<ul class="right">
 	<li><a href="logout.lti">Logout</a></li>
-		<li><a class="active" href="AdminWelcome.jsp">Home</a></li>
+		<li><a class="active" href="home.jsp">Home</a></li>
 	</ul>
 	<section>
 <div class="container">
