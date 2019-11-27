@@ -15,7 +15,7 @@
 <div class="navbar">
   <a class="active" href="#home">Home</a> 
   <div class="dropdown">
-    <button class="dropbtn">Login 
+    <button class="dropbtn">Login / SignUp 
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">

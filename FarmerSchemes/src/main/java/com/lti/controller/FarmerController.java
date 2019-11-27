@@ -43,7 +43,7 @@ public class FarmerController {
 			session.setAttribute("farmer", farmer);
 		} catch (NullPointerException e) {
 //			return "FarmerResigtration.jsp";
-			return "farmerlogin.jsp";
+			return "Farmerlogin.jsp";
 		}
 		// session code
 

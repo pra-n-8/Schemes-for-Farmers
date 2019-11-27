@@ -24,14 +24,9 @@
 
 	<section>
 		<div class="container">
-			<form method="post" action="Sell_Request.jsp">
+			<form method="post" action="PutSell.jsp">
 				<div>
 					<input type="submit" value="Place sale request" class="btn" />
-				</div>
-			</form>
-			<form method="post" action="soldCrop.lti">
-				<div>
-					<input type="submit" class="btn" value="Sold Crop History" />
 				</div>
 			</form>
 			<form method="post" action="goToViewPage.lti">

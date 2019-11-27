@@ -10,7 +10,10 @@
 </head>
 <body>
 <body>
-	
+	<ul class="right">
+	<li><a href="logoutadmin.lti">Logout</a></li>
+		<li><a class="active" href="AdminViewRequest.jsp">Home</a></li>
+	</ul>
 	<table border="1">
 		<tr>
 			<th>Listing Id</th>

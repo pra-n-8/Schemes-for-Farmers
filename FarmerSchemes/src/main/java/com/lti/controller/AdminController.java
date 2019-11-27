@@ -2,6 +2,7 @@ package com.lti.controller;
 
 import java.util.List;
 
+import javax.mail.Session;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,19 +26,20 @@ public class AdminController{
 	AdminService adminservice;
 
 	@RequestMapping(path="adminLogin.lti",method=RequestMethod.POST)
-    public String addNew(@RequestParam(name = "username") String username,@RequestParam(name = "pass") String password)  
+    public String addNew(@RequestParam(name = "username") String username,@RequestParam(name = "pass") String password,HttpSession session)  
     {  
 		Admin admin;
 		
 		try {
 		admin=adminservice.loginCheck(username, password);
+		
 		}
 		catch(NullPointerException e){
 			System.out.println(e);
 		}
 		//session code
-		
-		
+		session.setAttribute("username", "username");
+		session.setAttribute("pass", "password");
         return "AdminWelcome.jsp";  
     }
 	
@@ -53,7 +55,7 @@ public class AdminController{
 
 	}
 	
-	@RequestMapping(path = "logout.lti", method = RequestMethod.GET)
+	@RequestMapping(path = "logoutadmin.lti", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "home.jsp";

@@ -8,7 +8,35 @@ body {
   //color: #777;
   background: #4CAF50;
 }
+ul {
+	width: 100%;
+	flex-direction: row;
+	justify-content: space-around;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: black;
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
 
+li {
+	float: right;
+	
+}
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a:hover {
+	background-color: grey;
+}
 .container {
   max-width: 400px;
   width: 100%;
@@ -78,3 +106,7 @@ fieldset {
 .quantity::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
 }
+
+
+
+

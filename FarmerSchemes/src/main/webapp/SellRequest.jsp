@@ -13,5 +13,6 @@
 	<li><a href="logout.lti">Logout</a></li>
 		<li><a class="active" href="home.jsp">Home</a></li>
 	</ul>
+	
 </body>
 </html>
