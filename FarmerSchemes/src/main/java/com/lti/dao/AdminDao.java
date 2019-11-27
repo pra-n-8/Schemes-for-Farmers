@@ -45,7 +45,8 @@ public class AdminDao {
 	@Transactional
 	public List<ListedCrops> retrieve(LocalDateTime time) {
 		// TODO Auto-generated method stub
-		Query query= em.createQuery("select l from ListedCrops l join fetch l.crop c where l.expiryTime > :t");
+		
+		Query query= em.createQuery("select l from ListedCrops l join fetch l.crop c where l.expiryTime < :t");
 		query.setParameter("t", time);
 		List<ListedCrops> li = query.getResultList();
 		return li;

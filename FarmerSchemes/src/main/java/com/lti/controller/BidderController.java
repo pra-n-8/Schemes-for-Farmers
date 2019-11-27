@@ -45,7 +45,6 @@ public class BidderController {
 	}
 	@RequestMapping(path="viewcrops.lti" , method = RequestMethod.POST)
 	public ModelAndView viewlistedCrops(HttpSession session) {
-		System.out.println("in view");
 		ModelAndView mnv = new ModelAndView("ViewMarketplaceBidder.jsp");
 		List<ListedCrops> li = bidderservice.viewCrops();
 		System.out.println(li.size());
@@ -57,7 +56,9 @@ public class BidderController {
 	
 	@RequestMapping(path="bidForcrop.lti" , method = RequestMethod.POST)
 	public ModelAndView BidCrop(@RequestParam(name="listingId") int id,@RequestParam(name="Amount") double amount ,HttpSession session) {
-		System.out.println("in view");
+		Boolean flag =bidderservice.getAmount(id,amount);
+		if(flag==true)
+		{
 		CurrentBid cb = new CurrentBid();
 		cb.setAmount(amount);
 		cb.setBidder((Bidder)session.getAttribute("bidder"));
@@ -65,13 +66,23 @@ public class BidderController {
 		bidderservice.register(cb);
 		Bidder bidder = (Bidder)session.getAttribute("bidder");
 		ListedCrops l = bidderservice.getListedCrop(id);
-		l.setBasePrice(amount);
-		bidderservice.register(l);
+l.setBasePrice(amount);
+bidderservice.register(l);
 		ModelAndView mnv = new ModelAndView("ViewMarketplaceBidder.jsp");
 		List<ListedCrops> li = bidderservice.viewCrops();
 		System.out.println(li.size());
 		mnv.addObject("list", li);
 		return mnv;
+		}
+		else
+		{
+			ModelAndView mnv = new ModelAndView("ViewMarketplaceBidder.jsp");
+			List<ListedCrops> li = bidderservice.viewCrops();
+			System.out.println(li.size());
+			mnv.addObject("list", li);
+			mnv.addObject("Error","Place Higher Bid");
+			return mnv;
+		}
 	}
 	@RequestMapping(path="logout.lti" , method = RequestMethod.POST)
 	public String logout(HttpSession session) {

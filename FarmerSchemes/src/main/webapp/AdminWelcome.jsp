@@ -14,27 +14,10 @@
 	</ul>
 	<section>
 <div class="container">
- 
- <%
-		if (session != null) {
-			out.println("<h1 align=\"center\">WELCOME " + session.getAttribute("aname") + "</h1>");
-		}
-		else{
-			
-		}
-	%>
-
 	<section>
-		<div class="container">
-			<form method="post" action="showPreviousBids.jsp">
-				<div>
-					<input type="submit" value="Sell Log " class="btn" />
-				</div>
-			</form>
-			</div>
 			<form method="post" action="viewrequests.lti">
 				<div>
-					<input type="submit" class="btn" value="View Sale Requests" />
+					<input type="submit" class="btn" value="Sell Logs" />
 				</div>
 			</form>
 	</section>

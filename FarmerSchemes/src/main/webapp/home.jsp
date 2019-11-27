@@ -11,11 +11,9 @@
 
 </head>
 <body>
-<header id="header"><img id="logo" src="images/logo.jpg" alt=".">AGRO PRO</header>
+<header id="header"><h1><img id="logo" src="images/logo.jpg" alt=".">AGRO PRO</h1></header>
 <div class="navbar">
   <a class="active" href="#home">Home</a> 
-  <a href="#news">About</a>
-  <a href="#news">Contact Us</a>
   <div class="dropdown">
     <button class="dropbtn">Login 
       <i class="fa fa-caret-down"></i>

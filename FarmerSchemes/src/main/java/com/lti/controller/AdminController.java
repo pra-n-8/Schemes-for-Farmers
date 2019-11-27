@@ -52,4 +52,10 @@ public class AdminController{
 		return mnv;
 
 	}
+	
+	@RequestMapping(path = "logout.lti", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "home.jsp";
+	}
 }

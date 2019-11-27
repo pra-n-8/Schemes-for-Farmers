@@ -26,7 +26,7 @@
 
 	<section>
 		<div class="container">
-			<form method="post" action="showPreviousBids.jsp">
+			<form method="post" action="showPreviousBids.lti">
 				<div>
 					<input type="submit" value="My Previous Bids" class="btn" />
 				</div>

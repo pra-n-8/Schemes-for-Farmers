@@ -42,4 +42,11 @@ BidderDao bidder;
 		return bidder.getCrop(id);
 	}
 	
+	public boolean getAmount(int id , double amount) {
+		ListedCrops crop= bidder.getCrop(id);
+		if(crop.getBasePrice() < amount)
+			return true;
+		else 
+			return  false;
+		}
 }

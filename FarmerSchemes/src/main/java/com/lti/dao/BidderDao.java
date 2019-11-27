@@ -62,4 +62,5 @@ public class BidderDao {
 		query.setParameter("lId", id);
 		return (ListedCrops) query.getSingleResult();
 	}
+
 }

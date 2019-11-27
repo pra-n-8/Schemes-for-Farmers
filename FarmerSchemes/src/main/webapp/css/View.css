@@ -1,4 +1,7 @@
 @charset "ISO-8859-1";
+*{
+	margin:0px;
+}
 ul {
 	width: 100%;
 	flex-direction: row;

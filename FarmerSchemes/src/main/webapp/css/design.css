@@ -70,12 +70,17 @@ margin:0px;
 }
 
 #header {
-    font-size: 40px;
+    font-size: 20px;
     font-weight: bolder;
     color: green;
     margin-top: 0px;
 }
+#logo
+{
+	width:100px;
+	height:100px;
 
+}
 #block {
     text-align: center;
     margin-top: 10px;

@@ -34,6 +34,11 @@
 	<form action="bidForcrop.lti" method="post">
 	<input type="number" placeholder="Enter Listing id" name="listingId" class="quantity"/>
 	<input type="number" placeholder="Enter Amount" name="Amount" class="quantity"/>
+	<script>
+    var message = "[[${Error}]]";
+    document.getElementById("errorMessage").append(message);
+</script>
+<div id="errorMessage"></div>
 		<input type="submit" value="Submit">
 	</form>
 </body>
