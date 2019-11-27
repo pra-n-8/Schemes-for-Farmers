@@ -5,9 +5,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>View Farmer's Marketplace</title>
+<link rel="stylesheet" type="text/css" href="css/View.css">
 </head>
 <body>
+
+<ul class="right">
+	<li><a href="logout.lti">Logout</a></li>
+		<li><a class="active" href="FarmerWelcome.jsp">Home</a></li>
+	</ul>
 
 	<table border="1">
 	<tr>

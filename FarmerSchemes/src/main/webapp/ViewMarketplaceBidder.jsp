@@ -6,12 +6,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/View.css">
-<title>Market</title>
+<title>View Bidder's Marketplace</title>
 </head>
 <body>
 <ul class="right">
 	<li><a href="logout.lti">Logout</a></li>
-		<li><a class="active" href="ViewMarketPlaceBidder.jsp">Home</a></li>
+		<li><a class="active" href="BidderWelcome.jsp">Home</a></li>
 	</ul>
 	<table border="1">
 		<tr>

@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="css/Registration.css">
+
 <script type="text/javascript" src="registration.js"></script>
 <title>Farmer Registration</title>
 <script> 
@@ -38,6 +39,9 @@
         </script>
 </head>
 <body>
+<ul class="right">
+	<li><a class="active" href="home.jsp">Home</a></li>
+	</ul>
 <pre>
 <form action="farmerRegistration.lti" method="post" id="registration">
 <h1>Farmer Registration</h1>
