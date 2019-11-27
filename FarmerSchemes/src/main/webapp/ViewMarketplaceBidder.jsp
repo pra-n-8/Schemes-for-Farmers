@@ -35,7 +35,6 @@
 	<input type="number" placeholder="Enter Listing id" name="listingId" class="quantity" required="required"/>
 	<input type="number" placeholder="Enter Amount" name="Amount" class="quantity" required="required"/>
 	<h4 class="error">${Error}</h4>
-<div id="errorMessage"></div>
 		<input type="submit" value="Submit">
 	</form>
 </body>

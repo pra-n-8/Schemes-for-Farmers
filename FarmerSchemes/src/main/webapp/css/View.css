@@ -84,4 +84,6 @@ button:hover {
 .error{
 	color: red;
 	position:relative;
+	left:45%;
+	
 }
