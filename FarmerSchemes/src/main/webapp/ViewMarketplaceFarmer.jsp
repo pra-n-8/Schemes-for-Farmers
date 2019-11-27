@@ -7,23 +7,22 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body onload="com.lti.controller.BidderController().viewlistedCrops()">
+<body>
 
-	<form action="goToViewPage.lti" method="post">
-		<input type="submit" value="Submit">
-	</form>
-	<table>
-		<c:forEach items="${list }" var="crops">
-			<tr>
-			<th>FarmerId</th>
-			<th>Posting Time</th>
-			<th>Expiry Time</th>
+	<table border="1">
+	<tr>
+			<th>Listing Id</th>
 			<th>Crop Name</th>
+			<th>Crop Type</th>
+			<th>Fertilizer Type</th>
+			<th>Expiry Time</th>
 			<tr>
-			<td>${crops.farmer.farmerId }</td>
-			<td>${crops.postTime}</td>
-			<td>${crops.expiryTime}</td>
+		<c:forEach items="${Crops}" var="crops">
+			<td>${crops.listingId }</td>
 			<td>${crops.crop.cropName }</td>
+			<td>${crops.crop.cropType }</td>
+			<td>${crops.crop.fertilizerType}</td>
+			<td>${crops.expiryTime }</td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -1,0 +1,80 @@
+@charset "ISO-8859-1";
+ul {
+	width: 100%;
+	flex-direction: row;
+	justify-content: space-around;
+	list-style-type: none;
+	margin: 10;
+	padding: 0;
+	overflow: hidden;
+	background-color: black;
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+li {
+	float: right;
+	
+}
+h1{
+	align: center;
+}
+
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a:hover {
+	background-color: grey;
+}
+
+.quantity::-webkit-inner-spin-button, 
+.quantity::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+body {background-color: #CEB395;}
+table {
+    border-collapse: collapse;
+    font-family: sans-serif;
+    font-size: 13px;
+    margin: 20px 10px;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type=submit], input[type=number] {
+  width: 20%;
+  padding: 12px 20px;
+  margin-left: auto;
+    margin-right: auto;
+  display: block;
+  border: 4px solid #ccc;
+  box-sizing: border-box;
+ 
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+ margin-left: auto;
+    margin-right: auto;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+

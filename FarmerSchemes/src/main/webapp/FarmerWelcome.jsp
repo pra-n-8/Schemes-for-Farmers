@@ -10,17 +10,35 @@
 
 <body>
 	<ul class="right">
-	<li><a href="login.jsp">Logout</a></li>
+		<li><a href="logout.lti">Logout</a></li>
 		<li><a class="active" href="FarmerWelcome.jsp">Home</a></li>
 	</ul>
+	<%
+		if (session != null) {
+			out.println("<h1 align=\"center\">WELCOME " + session.getAttribute("fname") + "</h1>");
+		}
+		else{
+			
+		}
+	%>
 
-	<h1 align="center">WELCOME FARMER</h1>
 	<section>
-<div class="container">
- <div> <button class="btn">Place sell request</button></div>
-  <div><button class="btn">Sold Crop History </button></div>
-  <button class="btn"> View MarketPlace</button>
-</div>
-</section>
+		<div class="container">
+			<form method="post" action="Sell_Request.jsp">
+				<div>
+					<input type="submit" value="Place sell request" class="btn" />
+				</div>
+			</form>
+			<form method="post" action="soldCrop.lti">
+				<div>
+					<input type="submit" class="btn" value="Sold Crop History" />
+				</div>
+			</form>
+			<form method="post" action="goToViewPage.lti">
+				<div>
+					<input type="submit" class="btn" value="View MarketPlace" />
+				</div>
+			</form>
+	</section>
 </body>
 </html>

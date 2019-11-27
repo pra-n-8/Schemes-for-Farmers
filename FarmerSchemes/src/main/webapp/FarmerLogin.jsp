@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,8 +22,10 @@
 					placeholder="Enter Username" name="username" required> 
 				<label for="psw"><b>Password</b></label> <input type="password"
 					placeholder="Enter Password" name="pass" required>
+					
 				<button type="submit">Login</button>
-			</div>
+			</div>			
+			<div><a href="FarmerResigtration.jsp">New user ? Register here!</a></div>
 		</form>
 </body>
 </html> 

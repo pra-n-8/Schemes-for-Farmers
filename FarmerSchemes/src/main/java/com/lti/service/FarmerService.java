@@ -36,7 +36,7 @@ public class FarmerService {
 
 	}
 	
-	public List<CropDetails> getCrops(Farmer farmer){
+	public List<ListedCrops> getCrops(Farmer farmer){
 		return farmerdao.retriveCrops(farmer);
 	}
 

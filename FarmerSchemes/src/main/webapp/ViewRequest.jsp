@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<!--  <link rel="stylesheet" type="text/css" href="css/View.css">-->
 <title>Insert title here</title>
 </head>
 <body>
@@ -15,7 +16,6 @@
 			out.println("<h1>Login to view CropDetails</h1>");
 		}
 	%>
-
 	<table>
 		<tr>
 			<th>Crop id</th>

@@ -1,111 +1,70 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>Home Page</title>
-<link rel="stylesheet" type="text/css" href="css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/design.css">
+
 </head>
 <body>
-
-<div class="header">
-  <h1>Agrotech</h1>
-  <p>welcome</p>
-</div>
-
-
-<!-- <ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
-  <li><a href="#login">Login</a></li>
-
-</ul> -->
-
+<header id="header"><img id="logo" src="images/logo.jpg" alt=".">AGRO PRO</header>
 <div class="navbar">
-  <a href="#home">Home</a>
-  <a href="#news">News</a>
+  <a class="active" href="#home">Home</a> 
+  <a href="#news">About</a>
+  <a href="#news">Contact Us</a>
   <div class="dropdown">
-    <button class="dropbtn">Dropdown 
+    <button class="dropbtn">Login 
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
+      <a href="AdminLogin.jsp">Admin</a>
+      <a href="BidderLogin.jsp">Bidder</a>
+      <a href="FarmerLogin.jsp">Farmer</a>
     </div>
   </div> 
 </div>
-	
-	<!-- Slideshow container -->
-<div class="slideshow-container">
-
-  <!-- Full-width images with number and caption text -->
-  <div class="mySlides fade">
-    <div class="numbertext">1 / 3</div>
-    <img src="images/img1.jpg" style="width:100%">
+ <div class="row">
+  <div class="column" style="background-color:#aaa;">
+	<img class="mySlides" src="images/image.jpg">
+	<img class="mySlides" src="images/img1.jpg">
+	<img class="mySlides" src="images/img2.jpeg">
+	<img class="mySlides" src="images/img3.jpg">
+	<img class="mySlides" src="images/img4.jpg">
   </div>
-
-  <div class="mySlides fade">
-    <div class="numbertext">2 / 3</div>
-    <img src="images/img4.jpg" style="width:100%">
+ <div class="column">
+    <div> <h2>VISION</h2>
+<p class="a">To promote uniformity in agriculture marketing by streamlining of procedures across the integrated markets, 
+removing information asymmetry between buyers and sellers and promoting real time price discovery based on actual demand and supply.</p>
   </div>
-
-  <div class="mySlides fade">
-    <div class="numbertext">3 / 3</div>
-    <img src="images/img3.jpg" style="width:100%">
-  </div>
-
-  <!-- Next and previous buttons -->
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+<div><h2> MISSION</h2>
+<p class="a">Integration of APMCs across the country through a common online market platform to facilitate pan-India trade in agriculture commodities, 
+providing better price discovery through transparent auction process based on quality of produce along with timely online payment. </p>
 </div>
-<br>
-
-<!-- The dots/circles -->
-<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span>
-  <span class="dot" onclick="currentSlide(2)"></span>
-  <span class="dot" onclick="currentSlide(3)"></span>
 </div>
-
 <script>
-var slideIndex = 1;
-showSlides(slideIndex);
+var slideIndex = 0;
+carousel();
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
+function carousel() {
   var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none"; 
   }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
+  slideIndex++;
+  if (slideIndex > x.length) {slideIndex = 1} 
+  x[slideIndex-1].style.display = "block"; 
+  setTimeout(carousel, 2000); 
 }
 </script>
 
-	<%
-		if(session.getAttribute("fname")!=null){
-			out.println("Welcome "+session.getAttribute("fname"));
-		}
-	%>
-	<form action="goToViewPage.lti" method="post">
-	<input type="submit" value="Submit">
-	</form>
+<div class="footer">
+  <p>Contact information:9380605030</p>
+</div>
 </body>
 </html>
+

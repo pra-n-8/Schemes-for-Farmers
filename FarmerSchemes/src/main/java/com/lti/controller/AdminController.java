@@ -1,5 +1,9 @@
 package com.lti.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -7,10 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.servlet.ModelAndView;
 
 import com.lti.model.Admin;
 import com.lti.model.Bidder;
+import com.lti.model.ListedCrops;
 import com.lti.service.AdminService;
 
 
@@ -33,7 +38,18 @@ public class AdminController{
 		//session code
 		
 		
-        return "home.jsp";  
+        return "AdminWelcome.jsp";  
     }
 	
+	
+	@RequestMapping(path="viewrequests.lti" , method = RequestMethod.POST)
+	public ModelAndView viewlistedCrops(HttpSession session) {
+		ModelAndView mnv = new ModelAndView("AdminViewRequests.jsp");
+		List<ListedCrops> li = adminservice.viewrequests();
+		System.out.println(li.size());
+		mnv.addObject("list", li);
+		mnv.addObject("session",session);
+		return mnv;
+
+	}
 }

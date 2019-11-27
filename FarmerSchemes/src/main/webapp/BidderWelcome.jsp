@@ -9,17 +9,35 @@
 </head>
 <body>
 	<ul class="right">
-	<li><a href="home.jsp">Logout</a></li>
+	<li><a href="logout.lti">Logout</a></li>
 		<li><a class="active" href="BidderWelcome.jsp">Home</a></li>
 	</ul>
-
-	<h1 align="center">WELCOME BIDDER</h1>
 	<section>
 <div class="container">
- <button class="btn">MY Previous Bids </button>
- <div> <button class="btn">View MarketPlace</button></div>
  
+ <%
+		if (session != null) {
+			out.println("<h1 align=\"center\">WELCOME " + session.getAttribute("bname") + "</h1>");
+		}
+		else{
+			
+		}
+	%>
 
+	<section>
+		<div class="container">
+			<form method="post" action="showPreviousBids.jsp">
+				<div>
+					<input type="submit" value="My Previous Bids" class="btn" />
+				</div>
+			</form>
+			<form method="post" action="viewcrops.lti">
+				<div>
+					<input type="submit" class="btn" value="View MarketPlace" />
+				</div>
+			</form>
+			</div>
+	</section>
 </div>
 </section>
 </body>

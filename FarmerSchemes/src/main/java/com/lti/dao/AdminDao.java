@@ -1,5 +1,6 @@
 package com.lti.dao;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -7,9 +8,11 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lti.model.Admin;
 import com.lti.model.CropDetails;
+import com.lti.model.ListedCrops;
 
 @Component("admindao")
 public class AdminDao {
@@ -34,10 +37,17 @@ public class AdminDao {
 	}
 	
 	
-	public List<CropDetails> fetchCropDetails() {
-		Query q1 = em.createQuery("SELECT c FROM table_cropdetails c");
-		List<CropDetails> crops = q1.getResultList();
-		return crops;
+//	public List<CropDetails> fetchCropDetails() {
+//		Query q1 = em.createQuery("SELECT c FROM table_cropdetails c");
+//		List<CropDetails> crops = q1.getResultList();
+//		return crops;
+//	}
+	@Transactional
+	public List<ListedCrops> retrieve(LocalDateTime time) {
+		// TODO Auto-generated method stub
+		Query query= em.createQuery("select l from ListedCrops l join fetch l.crop c where l.expiryTime > :t");
+		query.setParameter("t", time);
+		List<ListedCrops> li = query.getResultList();
+		return li;
 	}
-
 }

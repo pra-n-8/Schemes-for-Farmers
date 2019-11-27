@@ -17,13 +17,13 @@ form{
   font-style: normal;
   font-weight: bold;
   text-align:inline; 
-  background-color:#009900; 
+  background-color:#52E166; 
   border-collapse: collapse; 
   border: 2px solid navy
 }
 h1{
   font-family: Calibri; 
-  font-size: 20pt;         
+  font-size: 30px;         
   font-weight: bold; 
   text-align: center; 
   text-decoration: underline
@@ -51,8 +51,9 @@ input[type="email"]
   margin-top: 3px;
   margin-bottom: 10px;
   font-size: 15px;
-  line-height: 20px;
+  line-height: 25px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   background-color: rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
+  color:white;
 }

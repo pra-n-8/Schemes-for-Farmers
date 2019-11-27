@@ -1,18 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" isELIgnored="false"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/View.css">
-<title>Market</title>
+<title>Requests</title>
 </head>
 <body>
-<ul class="right">
-	<li><a href="logout.lti">Logout</a></li>
-		<li><a class="active" href="ViewMarketPlaceBidder.jsp">Home</a></li>
-	</ul>
+<body>
+	
 	<table border="1">
 		<tr>
 			<th>Listing Id</th>
@@ -31,10 +29,5 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<form action="bidForcrop.lti" method="post">
-	<input type="number" placeholder="Enter Listing id" name="listingId" class="quantity"/>
-	<input type="number" placeholder="Enter Amount" name="Amount" class="quantity"/>
-		<input type="submit" value="Submit">
-	</form>
 </body>
 </html>
