@@ -1,4 +1,7 @@
 @charset "ISO-8859-1";
+*{
+	margin:0px;
+}
 .quantity::-webkit-inner-spin-button, 
 .quantity::-webkit-outer-spin-button { 
   -webkit-appearance: none; 

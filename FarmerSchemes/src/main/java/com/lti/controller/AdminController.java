@@ -26,7 +26,7 @@ public class AdminController{
 	AdminService adminservice;
 
 	@RequestMapping(path="adminLogin.lti",method=RequestMethod.POST)
-    public String addNew(@RequestParam(name = "username") String username,@RequestParam(name = "pass") String password,HttpSession session)  
+    public ModelAndView addNew(@RequestParam(name = "username") String username,@RequestParam(name = "pass") String password,HttpSession session)  
     {  
 		Admin admin;
 		
@@ -35,12 +35,15 @@ public class AdminController{
 		
 		}
 		catch(NullPointerException e){
-			System.out.println(e);
+			ModelAndView mnv = new ModelAndView("AdminLogin.jsp");
+			mnv.addObject("Error","invalid credentials");
+			return mnv;
 		}
 		//session code
 		session.setAttribute("username", "username");
 		session.setAttribute("pass", "password");
-        return "AdminWelcome.jsp";  
+		ModelAndView mnv = new ModelAndView("AdminWelcome.jsp");
+        return mnv;
     }
 	
 	

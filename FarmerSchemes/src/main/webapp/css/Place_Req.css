@@ -1,11 +1,12 @@
 @charset "ISO-8859-1";
-* {
-  box-sizing: border-box;
-}
 
+*{
+  box-sizing: border-box;
+  margin:0px;
+}
 body {
-  font-family:Helvetica, Arial, ;
-  //color: #777;
+  font-family:Helvetica, Arial ;
+  color: #777;
   background: #4CAF50;
 }
 ul {

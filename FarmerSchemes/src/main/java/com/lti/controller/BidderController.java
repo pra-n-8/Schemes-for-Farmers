@@ -29,7 +29,7 @@ public class BidderController {
 		return "home.jsp";
 	}
 	@RequestMapping(path="bidderlogin.lti", method = RequestMethod.POST)
-	public String loginBidder(@RequestParam(name="username") String username,@RequestParam(name="pass") String password,HttpSession session) {
+	public ModelAndView loginBidder(@RequestParam(name="username") String username,@RequestParam(name="pass") String password,HttpSession session) {
 		Bidder bidder;
 		
 		try {
@@ -37,11 +37,14 @@ public class BidderController {
 		session.setAttribute("bname", bidder.getBidderName());
 		session.setAttribute("bidder", bidder);
 		}
-		catch(NullPointerException e){
-			System.out.println(e);
+		catch(Exception e){
+			ModelAndView mnv = new ModelAndView("BidderLogin.jsp");
+			mnv.addObject("Error","Invalid username or password");
+			return mnv;
 		}
 //		session.setAttribute("bidder", bidder);
-		return "BidderWelcome.jsp";
+		ModelAndView mnv = new ModelAndView("BidderWelcome.jsp");
+		return mnv;
 	}
 	@RequestMapping(path="viewcrops.lti" , method = RequestMethod.POST)
 	public ModelAndView viewlistedCrops(HttpSession session) {

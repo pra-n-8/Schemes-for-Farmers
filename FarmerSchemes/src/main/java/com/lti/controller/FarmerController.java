@@ -31,7 +31,7 @@ public class FarmerController {
 	}
 
 	@RequestMapping(path = "farmerlogin.lti", method = RequestMethod.POST)
-	public String loginFarmer(@RequestParam(name = "username") String username,
+	public ModelAndView loginFarmer(@RequestParam(name = "username") String username,
 			@RequestParam(name = "pass") String password, HttpSession session) {
 		
 				Farmer farmer;
@@ -43,11 +43,13 @@ public class FarmerController {
 			session.setAttribute("farmer", farmer);
 		} catch (NullPointerException e) {
 //			return "FarmerResigtration.jsp";
-			return "Farmerlogin.jsp";
+			ModelAndView mnv = new ModelAndView("FarmerLogin.jsp");
+			mnv.addObject("Error","Inavlid username or password");
+			return mnv;
 		}
 		// session code
-
-		return "FarmerWelcome.jsp";
+		ModelAndView mnv = new ModelAndView("FarmerWelcome.jsp");
+		return mnv;
 	}
 
 	@RequestMapping(path = "placeCrops.lti", method = RequestMethod.POST)

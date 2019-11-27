@@ -3,15 +3,15 @@
 <!DOCTYPE html >
 <html>
 <head>
-<meta charset=ISO-8859-1">
-<title>Admin Home</title>
+<meta charset="ISO-8859-1">
+<title>Farmer Home</title>
 <link rel="stylesheet" type="text/css" href="css/InsideHome.css">
 </head>
 
 <body>
 	<ul class="right">
 		<li><a href="logout.lti">Logout</a></li>
-		<li><a class="active" href="home.jsp">Home</a></li>
+		<li><a class="active" href="FarmerWelcome.jsp">Home</a></li>
 	</ul>
 	<%
 		if (session != null) {
@@ -26,14 +26,15 @@
 		<div class="container">
 			<form method="post" action="PutSell.jsp">
 				<div>
-					<input type="submit" value="Place sale request" class="btn" />
+					<input type="submit" value="Place sale request" />
 				</div>
 			</form>
 			<form method="post" action="goToViewPage.lti">
 				<div>
-					<input type="submit" class="btn" value="View MarketPlace" />
+					<input type="submit" value="View MarketPlace" />
 				</div>
 			</form>
+			</div>
 	</section>
 </body>
 </html>

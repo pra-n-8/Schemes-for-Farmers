@@ -10,12 +10,12 @@
 <body>
 <ul class="right">
 		<li><a href="logout.lti">Logout</a></li>
-		<li><a class="active" href="home.jsp">Home</a></li>
+		<li><a class="active" href="FarmerWelcome.jsp">Home</a></li>
 	</ul>
 <div class="container">  
 <%
 if(session.getAttribute("fid")!=null){
-	out.print("<p1>Hello,"+session.getAttribute("fname")+"</p>");
+	out.print("<H1>Hello,"+session.getAttribute("fname")+"</H1>");
 }
 %>
   <form id="contact" action="placeCrops.lti" method="post">

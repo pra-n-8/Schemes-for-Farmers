@@ -22,6 +22,7 @@
 					placeholder="Enter Username" name="username" required> 
 				<label for="psw"><b>Password</b></label> <input type="password"
 					placeholder="Enter Password" name="pass" required>
+					<h4 class="error">${Error }</h4>
 				<button type="submit">Login</button>
 			</div>
 			

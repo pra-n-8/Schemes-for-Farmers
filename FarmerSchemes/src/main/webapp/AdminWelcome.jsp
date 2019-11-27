@@ -17,7 +17,7 @@
 	<section>
 			<form method="post" action="viewrequests.lti">
 				<div>
-					<input type="submit" class="btn" value="Sell Logs" />
+					<input type="submit"  value="Sell Logs" />
 				</div>
 			</form>
 	</section>

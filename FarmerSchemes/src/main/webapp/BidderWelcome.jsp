@@ -10,7 +10,7 @@
 <body>
 	<ul class="right">
 	<li><a href="logout.lti">Logout</a></li>
-		<li><a class="active" href="home.jsp">Home</a></li>
+		<li><a class="active" href="BidderWelcome.jsp">Home</a></li>
 	</ul>
 	<section>
 <div class="container">
@@ -26,14 +26,10 @@
 
 	<section>
 		<div class="container">
-			<form method="post" action="showPreviousBids.lti">
-				<div>
-					<input type="submit" value="My Previous Bids" class="btn" />
-				</div>
-			</form>
+			
 			<form method="post" action="viewcrops.lti">
 				<div>
-					<input type="submit" class="btn" value="View MarketPlace" />
+					<input type="submit"  value="View MarketPlace" />
 				</div>
 			</form>
 			</div>
